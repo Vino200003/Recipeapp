@@ -16,7 +16,7 @@
 
 
         <Button
-            android:id="@+id/signupsignup2"
+            android:id="@+id/submit2"
             android:layout_width="200dp"
             android:layout_height="70dp"
             android:layout_alignParentTop="true"
@@ -88,7 +88,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editTextEmail1"
+            android:id="@+id/emailorphone"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_alignParentTop="true"
