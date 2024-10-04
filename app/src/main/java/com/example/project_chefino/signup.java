@@ -11,16 +11,28 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.project_chefino.R;
+import com.example.project_chefino.home;
+import com.example.project_chefino.login;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class signup extends AppCompatActivity {
 
     private EditText emailEditText, passwordEditText, confirmPasswordEditText;
     private Button signUpButton;
     private TextView signInTextView;
 
+    // Firebase Auth instance
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
         // Initialize UI components
         emailEditText = findViewById(R.id.editTextEmail1);
@@ -61,9 +73,21 @@ public class signup extends AppCompatActivity {
         } else if (!password.equals(confirmPassword)) {
             Toast.makeText(signup.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
         } else {
-            // If all fields are valid, redirect to the Home page
-            Intent intent = new Intent(signup.this, home.class);
-            startActivity(intent);
+            // Use FirebaseAuth to create a new user
+            mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, task -> {
+                        if (task.isSuccessful()) {
+                            // Sign up success, redirect to home activity
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            Intent intent = new Intent(signup.this, home.class);
+                            startActivity(intent);
+                            finish();  // Optionally, close this activity
+                        } else {
+                            // If sign up fails, display a message to the user
+                            Toast.makeText(signup.this, "Authentication failed: " + task.getException().getMessage(),
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    });
         }
     }
 }
