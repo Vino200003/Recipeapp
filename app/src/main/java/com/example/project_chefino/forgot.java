@@ -1,38 +1,71 @@
 package com.example.project_chefino;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class forgot extends AppCompatActivity {
 
-    EditText emailOrPhone;
-    Button submit;
+    private FirebaseAuth mAuth;
+    private EditText emailInput;
+    private Button submitButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forgot); // Set your XML layout here
+        setContentView(R.layout.activity_forgot);  // Link to your forgot.xml layout
 
-        emailOrPhone = findViewById(R.id.emailorphone);
-        submit = findViewById(R.id.submit2);
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
-        submit.setOnClickListener(new View.OnClickListener() {
+        // Initialize the views
+        emailInput = findViewById(R.id.emailorphone);  // EditText
+        submitButton = findViewById(R.id.submit2);      // Button
+
+        // Set an onClickListener for the submit button
+        submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String input = emailOrPhone.getText().toString().trim();
-                if (input.isEmpty()) {
-                    Toast.makeText(forgot.this, "Please enter your email or phone number", Toast.LENGTH_SHORT).show();
+                // Get email from the EditText
+                String email = emailInput.getText().toString().trim();
+
+                // Check if email is empty
+                if (email.isEmpty()) {
+                    emailInput.setError("Email is required");
+                    emailInput.requestFocus();
+                    return;
+                }
+
+                // Optionally, validate email format
+                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    emailInput.setError("Please provide a valid email");
+                    emailInput.requestFocus();
+                    return;
+                }
+
+                // Call the resetPassword method
+                resetPassword(email);
+            }
+        });
+    }
+
+    // Method to reset the password using Firebase
+    private void resetPassword(String email) {
+        mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(forgot.this, "Check your email to reset your password!", Toast.LENGTH_LONG).show();
                 } else {
-                    // Assume sending OTP logic here
-                    Toast.makeText(forgot.this, "OTP sent to " + input, Toast.LENGTH_SHORT).show();
-                    // Redirect to OTP page
-                    Intent intent = new Intent(forgot.this, otp.class);
-                    startActivity(intent);
+                    Toast.makeText(forgot.this, "Failed to send reset email!", Toast.LENGTH_LONG).show();
                 }
             }
         });
