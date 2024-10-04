@@ -68,7 +68,7 @@ public class login extends AppCompatActivity {
             Toast.makeText(login.this, "Please enter both email and password", Toast.LENGTH_SHORT).show();
         } else {
             // Redirect to Home Page after successful login
-            Intent intent = new Intent(login.this,Home.class);
+            Intent intent = new Intent(login.this,home.class);
             startActivity(intent);
         }
     }
