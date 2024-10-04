@@ -2,6 +2,7 @@ package com.example.project_chefino;
 
 
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,79 +11,92 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class login extends AppCompatActivity {
 
     private EditText emailEditText, passwordEditText;
     private Button loginButton;
-    private TextView signUpTextView, forgotPasswordTextView;
+    private TextView forgotPasswordTextView, signUpTextView;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login);  // Assuming your XML is named login.xml
 
-        initializeUIElements();  // Initialize UI components
-        setListeners();  // Set listeners for buttons and text views
-    }
+        // Initialize Firebase Auth
+        firebaseAuth = FirebaseAuth.getInstance();
 
-    // Initialize UI components
-    private void initializeUIElements() {
+        // Bind views
         emailEditText = findViewById(R.id.editTextEmail2);
         passwordEditText = findViewById(R.id.editTextPassword2);
         loginButton = findViewById(R.id.login);
-        signUpTextView = findViewById(R.id.signup);
         forgotPasswordTextView = findViewById(R.id.forgotpw);
-    }
+        signUpTextView = findViewById(R.id.signup);
 
-    // Set listeners for login, signup, and forgot password actions
-    private void setListeners() {
+        // Login button onClick listener
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 loginUser();
             }
         });
 
+        // Sign up TextView onClick listener
         signUpTextView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                redirectToSignUp();
+            public void onClick(View view) {
+                // Open sign-up activity
+                Intent signUpIntent = new Intent(login.this, signup.class);
+                startActivity(signUpIntent);
             }
         });
 
+        // Forgot password onClick listener
         forgotPasswordTextView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                redirectToForgotPassword();
+            public void onClick(View view) {
+                // Open forgot password activity
+                Intent forgotIntent = new Intent(login.this, forgot.class);
+                startActivity(forgotIntent);
             }
         });
     }
 
-    // Method to handle login action
+    // Method to login the user
     private void loginUser() {
         String email = emailEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
 
-        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-            Toast.makeText(login.this, "Please enter both email and password", Toast.LENGTH_SHORT).show();
-        } else {
-            // Redirect to Home Page after successful login
-            Intent intent = new Intent(login.this,home.class);
-            startActivity(intent);
+        if (TextUtils.isEmpty(email)) {
+            emailEditText.setError("Please enter your email");
+            return;
         }
-    }
 
-    // Method to redirect to Sign Up page
-    private void redirectToSignUp() {
-        Intent intent = new Intent(login.this,signup.class);
-        startActivity(intent);
-    }
+        if (TextUtils.isEmpty(password)) {
+            passwordEditText.setError("Please enter your password");
+            return;
+        }
 
-    // Method to redirect to Forgot Password page
-    private void redirectToForgotPassword() {
-        Intent intent = new Intent(login.this, forgot.class);
-        startActivity(intent);
+        // Firebase authentication for logging in
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Login successful, navigate to HomeActivity
+                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                        Intent homeIntent = new Intent(login.this, home.class);
+                        startActivity(homeIntent);
+                        finish(); // Close login activity
+                    } else {
+                        // Login failed, show error message
+                        Toast.makeText(login.this, "Authentication failed. Check email or password", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }
