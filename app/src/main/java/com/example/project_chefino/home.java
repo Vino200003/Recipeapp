@@ -3,12 +3,12 @@ package com.example.project_chefino;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-public class home extends AppCompatActivity {
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-    private ImageView profileButton;
+public class home extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,9 @@ public class home extends AppCompatActivity {
         // Initialize buttons
         Button breakfastButton = findViewById(R.id.button1);
         Button lunchButton = findViewById(R.id.button2);
-        profileButton = findViewById(R.id.imageView13);
+        Button dinnerButton = findViewById(R.id.button3);
+        Button dessertButton = findViewById(R.id.button4);
+        FloatingActionButton fab = findViewById(R.id.fab); // Floating Action Button
 
         // Set onClick listeners for each button
         breakfastButton.setOnClickListener(v -> {
@@ -31,8 +33,19 @@ public class home extends AppCompatActivity {
             startActivity(intent);
         });
 
-        profileButton.setOnClickListener(v -> {
-            Intent intent = new Intent(home.this, profile1.class);
+        dinnerButton.setOnClickListener(v -> {
+            Intent intent = new Intent(home.this, dinner1.class);
+            startActivity(intent);
+        });
+
+        dessertButton.setOnClickListener(v -> {
+            Intent intent = new Intent(home.this, dessert1.class);
+            startActivity(intent);
+        });
+
+        // Set onClickListener for Floating Action Button to navigate to the Add Recipe page
+        fab.setOnClickListener(v -> {
+            Intent intent = new Intent(home.this, addrecipe1.class); // Replace with your Add Recipe activity class
             startActivity(intent);
         });
     }
