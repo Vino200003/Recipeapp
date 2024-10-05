@@ -9,11 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
-public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder> {
+public class LunchRecipeAdapter extends RecyclerView.Adapter<LunchRecipeAdapter.RecipeViewHolder> {
 
-    private List<Recipe> recipeList;
+    private List<LunchRecipe> recipeList;
 
-    public RecipeAdapter(List<Recipe> recipeList) {
+    public LunchRecipeAdapter(List<LunchRecipe> recipeList) {
         this.recipeList = recipeList;
     }
 
@@ -21,13 +21,13 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
     @Override
     public RecipeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.activity_item_recipe, parent, false);
+                .inflate(R.layout.activity_lunch_item_recipe, parent, false);
         return new RecipeViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecipeViewHolder holder, int position) {
-        Recipe recipe = recipeList.get(position);
+        LunchRecipe recipe = recipeList.get(position);
         holder.recipeNameTextView.setText(recipe.getName());
         holder.recipeDescriptionTextView.setText(recipe.getDescription());
         holder.recipeImageView.setImageResource(recipe.getImageResourceId());

@@ -11,8 +11,8 @@ import java.util.List;
 public class lunch2 extends AppCompatActivity {
 
     private RecyclerView lunchRecyclerView;
-    private RecipeAdapter lunchRecipeAdapter;
-    private List<Recipe> recipeList;
+    private LunchRecipeAdapter lunchRecipeAdapter;
+    private List<LunchRecipe> recipeList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +24,12 @@ public class lunch2 extends AppCompatActivity {
 
         // Sample data - Replace with data from your database
         recipeList = new ArrayList<>();
-        recipeList.add(new Recipe("Grilled Cheese Sandwich", "A delicious grilled cheese sandwich.", R.drawable.grilled_cheese)); // Replace with your actual drawable resource
-        recipeList.add(new Recipe("Caesar Salad", "Fresh Caesar salad with dressing.", R.drawable.caesar_salad)); // Replace with your actual drawable resource
+        recipeList.add(new LunchRecipe("Grilled Cheese Sandwich", "A delicious grilled cheese sandwich.", R.drawable.grilled_cheese)); // Replace with your actual drawable resource
+        recipeList.add(new LunchRecipe("Caesar Salad", "Fresh Caesar salad with dressing.", R.drawable.caesar_salad)); // Replace with your actual drawable resource
 
 
 
-        lunchRecipeAdapter = new RecipeAdapter(recipeList);
+        lunchRecipeAdapter = new LunchRecipeAdapter(recipeList);
         lunchRecyclerView.setAdapter(lunchRecipeAdapter);
     }
 }

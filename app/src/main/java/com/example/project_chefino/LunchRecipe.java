@@ -2,13 +2,13 @@ package com.example.project_chefino;
 
 
 
-public class Recipe {
+public class LunchRecipe {
     private String name;
     private String description;
     private int imageResourceId;
 
     // Constructor
-    public Recipe(String name, String description, int imageResourceId) {
+    public LunchRecipe(String name, String description, int imageResourceId) {
         this.name = name;
         this.description = description;
         this.imageResourceId = imageResourceId;
