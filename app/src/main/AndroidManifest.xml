@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Project_chefino"
         tools:targetApi="31">
         <activity
-            android:name=".test2"
+            android:name=".profile11"
             android:exported="false" />
         <activity
             android:name=".editProfile11"
@@ -35,6 +35,9 @@
             android:exported="false" />
         <activity
             android:name=".lunch1"
+            android:exported="false" />
+        <activity
+            android:name=".lunch"
             android:exported="false" />
         <activity
             android:name=".createaccount"
@@ -77,7 +80,7 @@
             android:exported="false" />
         <activity
             android:name=".signup"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".login"
             android:exported="false" />
