@@ -90,7 +90,7 @@ public class login extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         // Login successful, navigate to HomeActivity
                         FirebaseUser user = firebaseAuth.getCurrentUser();
-                        Intent homeIntent = new Intent(login.this, home.class);
+                        Intent homeIntent = new Intent(login.this,home.class);
                         startActivity(homeIntent);
                         finish(); // Close login activity
                     } else {

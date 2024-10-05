@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.project_chefino.R;
-import com.example.project_chefino.home;
+import com.example.project_chefino. home;
 import com.example.project_chefino.login;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
