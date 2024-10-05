@@ -19,7 +19,7 @@ public class home extends AppCompatActivity {
 
         // Set onClickListener for lunchButton
         lunchButton.setOnClickListener(v -> {
-            Intent intent = new Intent(home.this, lunch1.class);
+            Intent intent = new Intent(home.this, lunch2.class);
             startActivity(intent);
         });
 
