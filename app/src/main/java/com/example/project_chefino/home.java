@@ -34,11 +34,6 @@ public class home extends AppCompatActivity {
             startActivity(intent);
         });
 
-        lunchButton.setOnClickListener(v -> {
-            Intent intent = new Intent(home.this, lunch1.class);
-            startActivity(intent);
-        });
-
         dinnerButton.setOnClickListener(v -> {
             Intent intent = new Intent(home.this, dinner1.class);
             startActivity(intent);
