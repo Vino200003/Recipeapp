@@ -54,7 +54,7 @@ public class settings extends AppCompatActivity {
         text1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(settings.this, editProfile11.class);  // Replace MainActivity4 with your target activity
+                Intent intent = new Intent(settings.this, editProfile1.class);  // Replace MainActivity4 with your target activity
                 startActivity(intent);
             }
         });
@@ -62,7 +62,7 @@ public class settings extends AppCompatActivity {
         imageView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(settings.this, editProfile11.class);  // Navigate to MainActivity4
+                Intent intent = new Intent(settings.this, editProfile1.class);  // Navigate to MainActivity4
                 startActivity(intent);
             }
         });
