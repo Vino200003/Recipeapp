@@ -25,7 +25,7 @@ public class home extends AppCompatActivity {
         lunchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(home.this, lunch.class);
+                Intent intent = new Intent(home.this,lunch.class);
                 startActivity(intent);
 
             }
