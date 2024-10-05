@@ -13,6 +13,18 @@
         android:theme="@style/Theme.Project_chefino"
         tools:targetApi="31">
         <activity
+            android:name=".dinnerrecipe"
+            android:exported="false" />
+        <activity
+            android:name=".dinner2"
+            android:exported="false" />
+        <activity
+            android:name=".breakfast_recipe_items"
+            android:exported="false" />
+        <activity
+            android:name=".breakfast2"
+            android:exported="false" />
+        <activity
             android:name=".item_recipe"
             android:exported="false" />
         <activity
