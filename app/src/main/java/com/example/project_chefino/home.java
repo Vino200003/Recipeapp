@@ -3,7 +3,6 @@ package com.example.project_chefino;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,12 +11,16 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class home extends AppCompatActivity {
 
-    private ImageView profileButton;
+    private ImageView profileButton, searchButton, savedButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home); // Assuming your layout file is activity_home.xml
+
+
+        // Change the status bar color to black
+        getWindow().setStatusBarColor(getResources().getColor(android.R.color.black));
 
         // Initialize buttons
         Button breakfastButton = findViewById(R.id.button1);
@@ -27,6 +30,8 @@ public class home extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab); // Floating Action Button
 
         profileButton = findViewById(R.id.imageView13);
+        searchButton = findViewById(R.id.imageView7); // Search button (ImageView)
+        savedButton = findViewById(R.id.imageView9); // New Saved button (ImageView)
 
         // Set onClick listeners for each button
         breakfastButton.setOnClickListener(v -> {
@@ -44,9 +49,6 @@ public class home extends AppCompatActivity {
             startActivity(intent);
         });
 
-
-
-
         // Set onClickListener for Floating Action Button to navigate to the Add Recipe page
         fab.setOnClickListener(v -> {
             Intent intent = new Intent(home.this, addrecipe1.class); // Replace with your Add Recipe activity class
@@ -55,6 +57,18 @@ public class home extends AppCompatActivity {
 
         profileButton.setOnClickListener(v -> {
             Intent intent = new Intent(home.this, profile11.class);
+            startActivity(intent);
+        });
+
+        // Set onClickListener for Search Button to navigate to the Search page
+        searchButton.setOnClickListener(v -> {
+            Intent intent = new Intent(home.this, search.class); // Replace with your Search activity class
+            startActivity(intent);
+        });
+
+        // Set onClickListener for Saved Button to navigate to the Saved page
+        savedButton.setOnClickListener(v -> {
+            Intent intent = new Intent(home.this, save.class); // Replace with your Saved activity class
             startActivity(intent);
         });
     }
