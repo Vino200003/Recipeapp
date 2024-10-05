@@ -16,6 +16,8 @@ public class home extends AppCompatActivity {
         // Initialize buttons
         Button breakfastButton = findViewById(R.id.button1);
         Button lunchButton = findViewById(R.id.button2);
+        Button dinnerButton = findViewById(R.id.button3);
+        Button dessertButton = findViewById(R.id.button4);
 
         // Set onClick listeners for each button
         breakfastButton.setOnClickListener(v -> {
@@ -25,6 +27,16 @@ public class home extends AppCompatActivity {
 
         lunchButton.setOnClickListener(v -> {
             Intent intent = new Intent(home.this, lunch1.class);
+            startActivity(intent);
+        });
+
+        dinnerButton.setOnClickListener(v -> {
+            Intent intent = new Intent(home.this, dinner1.class);
+            startActivity(intent);
+        });
+
+        dessertButton.setOnClickListener(v -> {
+            Intent intent = new Intent(home.this, dessert1.class);
             startActivity(intent);
         });
     }

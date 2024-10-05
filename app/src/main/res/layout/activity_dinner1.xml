@@ -6,9 +6,7 @@
     android:background="@color/mybackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".dinner">
-
-
+    tools:context=".dinner1">
 
         <ImageView
             android:id="@+id/imageView4"
@@ -376,5 +374,4 @@
             app:layout_constraintVertical_bias="0.721"
             app:srcCompat="@drawable/baseline_access_time_24" />
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
