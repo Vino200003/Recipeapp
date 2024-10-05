@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".profile">
+    tools:context=".profile1">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar3"
@@ -67,7 +67,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/materialToolbar2"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/baseline_person_24" />
 
@@ -395,4 +394,5 @@
 
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
