@@ -6,7 +6,7 @@
     android:background="@color/mybackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".breakfast">
+    tools:context=".breakfast1">
 
 
         <ImageView
@@ -377,5 +377,4 @@
             app:srcCompat="@drawable/baseline_access_time_24" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+</androidx.constraintlayout.widget.ConstraintLayout>

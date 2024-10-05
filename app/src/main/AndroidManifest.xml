@@ -18,7 +18,33 @@
         <activity
             android:name=".lunch2"
             android:exported="false" />
-
+        <activity
+            android:name=".profile11"
+            android:exported="false" />
+        <activity
+            android:name=".editProfile11"
+            android:exported="false" />
+        <activity
+            android:name=".editProfile1"
+            android:exported="false" />
+        <activity
+            android:name=".addrecipe1"
+            android:exported="false" />
+        <activity
+            android:name=".dessert1"
+            android:exported="false" />
+        <activity
+            android:name=".dinner1"
+            android:exported="false" />
+        <activity
+            android:name=".breakfast1"
+            android:exported="false" />
+        <activity
+            android:name=".lunch1"
+            android:exported="false" />
+        <activity
+            android:name=".lunch"
+            android:exported="false" />
         <activity
             android:name=".createaccount"
             android:exported="false" />
