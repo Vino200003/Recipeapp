@@ -13,9 +13,11 @@
         android:theme="@style/Theme.Project_chefino"
         tools:targetApi="31">
         <activity
+            android:name=".recipescrollview"
+            android:exported="false" />
+        <activity
             android:name=".changePassword"
             android:exported="false" />
-
         <activity
             android:name=".editProfile"
             android:exported="false" />
