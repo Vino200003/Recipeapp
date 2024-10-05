@@ -56,7 +56,7 @@ public class home extends AppCompatActivity {
         });
 
         profileButton.setOnClickListener(v -> {
-            Intent intent = new Intent(home.this, profile1.class);
+            Intent intent = new Intent(home.this, profile11.class);
             startActivity(intent);
         });
     }
