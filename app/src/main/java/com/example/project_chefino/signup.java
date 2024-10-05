@@ -31,6 +31,8 @@ public class signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+        getWindow().setStatusBarColor(getResources().getColor(android.R.color.black));
+
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 

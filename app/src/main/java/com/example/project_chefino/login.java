@@ -30,6 +30,8 @@ public class login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);  // Assuming your XML is named login.xml
 
+        getWindow().setStatusBarColor(getResources().getColor(android.R.color.black));
+
         // Initialize Firebase Auth
         firebaseAuth = FirebaseAuth.getInstance();
 

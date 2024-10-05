@@ -22,6 +22,7 @@ public class forgot extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot);  // Link to your forgot.xml layout
+        getWindow().setStatusBarColor(getResources().getColor(android.R.color.black));
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();

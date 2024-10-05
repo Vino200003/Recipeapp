@@ -1,16 +1,13 @@
 package com.example.project_chefino;
 
-
-
-import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
+import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.VideoView;
-import android.annotation.SuppressLint;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 public class recipescrollview extends AppCompatActivity {
 
@@ -20,13 +17,10 @@ public class recipescrollview extends AppCompatActivity {
         setContentView(R.layout.activity_recipescrollview);
 
         // Reference the VideoView from XML
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) VideoView videoView = findViewById(R.id.recipe_video_view1);
-
-
+        VideoView videoView = findViewById(R.id.recipe_video_view1);
 
         // Option 2: Load a video from a URL
         String videoPath = "https://www.youtube.com/watch?v=HI2-u2zu8Ss";
-
         Uri uri = Uri.parse(videoPath);
         videoView.setVideoURI(uri);
 
@@ -37,5 +31,12 @@ public class recipescrollview extends AppCompatActivity {
 
         // Start the video
         videoView.start();
+
+        // Add functionality for the "Add Review" button
+        Button addReviewButton = findViewById(R.id.btn_add_review);
+        addReviewButton.setOnClickListener(v -> {
+            Intent intent = new Intent(recipescrollview.this, review1.class); // Replace ReviewPageActivity with your actual review page activity class
+            startActivity(intent);
+        });
     }
 }

@@ -22,7 +22,7 @@ public class lunch2 extends AppCompatActivity {
         lunchRecyclerView = findViewById(R.id.lunchRecyclerView);
         lunchRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Sample data - Replace with data from your database
+
         recipeList = new ArrayList<>();
         recipeList.add(new LunchRecipe("Chicken curry", "A delicious grilled cheese sandwich.", R.drawable.chicken_curry)); // Replace with your actual drawable resource
         recipeList.add(new LunchRecipe("Chicken Nasi Goreng", "Fresh Caesar salad with dressing.", R.drawable.chicken_nasi_goreng)); // Replace with your actual drawable resource
