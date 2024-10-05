@@ -24,8 +24,8 @@
         <TextView
             android:layout_width="118dp"
             android:layout_height="68dp"
-            android:layout_marginStart="156dp"
-            android:layout_marginTop="88dp"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="92dp"
             android:gravity="center"
             android:text="Saved"
             android:textAlignment="center"
