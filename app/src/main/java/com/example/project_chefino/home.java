@@ -30,7 +30,7 @@ public class home extends AppCompatActivity {
 
         // Set onClick listeners for each button
         breakfastButton.setOnClickListener(v -> {
-            Intent intent = new Intent(home.this, breakfast1.class);
+            Intent intent = new Intent(home.this, breakfast2.class);
             startActivity(intent);
         });
 
@@ -39,12 +39,13 @@ public class home extends AppCompatActivity {
             startActivity(intent);
         });
 
-
-
-        dessertButton.setOnClickListener(v -> {
-            Intent intent = new Intent(home.this, dessert1.class);
+        dinnerButton.setOnClickListener(v -> {
+            Intent intent = new Intent(home.this, dinner2.class);
             startActivity(intent);
         });
+
+
+
 
         // Set onClickListener for Floating Action Button to navigate to the Add Recipe page
         fab.setOnClickListener(v -> {
