@@ -16,6 +16,9 @@
             android:name=".item_recipe"
             android:exported="false" />
         <activity
+            android:name=".recipescrollview"
+            android:exported="true" />
+        <activity
             android:name=".lunch2"
             android:exported="false" />
         <activity
