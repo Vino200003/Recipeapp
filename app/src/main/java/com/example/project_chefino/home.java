@@ -17,12 +17,15 @@ public class home extends AppCompatActivity {
         Button breakfastButton = findViewById(R.id.button1);
         Button lunchButton = findViewById(R.id.button2);
 
-        // Set onClickListener for lunchButton
+        // Set onClick listeners for each button
+        breakfastButton.setOnClickListener(v -> {
+            Intent intent = new Intent(home.this, breakfast1.class);
+            startActivity(intent);
+        });
+
         lunchButton.setOnClickListener(v -> {
             Intent intent = new Intent(home.this, lunch1.class);
             startActivity(intent);
         });
-
-
     }
 }
