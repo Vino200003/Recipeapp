@@ -27,9 +27,7 @@
         <activity
             android:name=".lunch1"
             android:exported="false" />
-        <activity
-            android:name=".lunch"
-            android:exported="false" />
+
         <activity
             android:name=".createaccount"
             android:exported="false" />
@@ -71,7 +69,7 @@
             android:exported="false" />
         <activity
             android:name=".signup"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".login"
             android:exported="false" />
